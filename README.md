@@ -26,7 +26,7 @@ This will create three clusters alpha, beta, and mgmt.
 `kubectl create -f claim.yaml`
 
 # Running a job 
-This will execute the workflow on each of the clusters. 
+This will execute the workflow on each of the clusters. Currently the context must be switched manually. Ideally the Job API could be used to submit jobs to the federated cluster as a whole.
 
 `nextflow kuberun KevinSayers/rnaseq-nf -v task-pv-claim:/newtest -profile alpha`
 
