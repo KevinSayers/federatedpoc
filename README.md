@@ -1,4 +1,5 @@
 # federatedpoc
+Exploratory work looking at using Kubernetes Federation to run bioinformatics workflows on multiple distant clusters. 
 
 # Cluster setup
 This will create three clusters alpha, beta, and mgmt.
@@ -25,10 +26,12 @@ This will create three clusters alpha, beta, and mgmt.
 `kubectl create -f claim.yaml`
 
 # Running a job 
+This will execute the workflow on each of the clusters. 
+
 `nextflow kuberun KevinSayers/rnaseq-nf -v task-pv-claim:/newtest -profile alpha`
 
 `nextflow kuberun KevinSayers/rnaseq-nf -v task-pv-claim:/newtest -profile beta`
 
 # Next steps
-Federate clusters created on different cloud provides. 
+Federate clusters created on different cloud providers. 
 
