@@ -1,5 +1,5 @@
 # federatedpoc
-Exploratory work looking at using Kubernetes Federation to run bioinformatics workflows on multiple distant clusters. 
+Exploratory work looking at using Kubernetes Federation to run bioinformatics workflows on multiple distant clusters. This could be utilized to send a containerized workflow to different sites with immovable datasets. 
 
 ![alt text](k8poc.png "k8")
 
