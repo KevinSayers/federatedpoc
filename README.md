@@ -1,6 +1,8 @@
 # federatedpoc
 Exploratory work looking at using Kubernetes Federation to run bioinformatics workflows on multiple distant clusters. 
 
+![alt text](k8poc.png "k8")
+
 # Cluster setup
 This will create three clusters alpha, beta, and mgmt.
 
