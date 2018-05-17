@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gluster-claim  
+spec:
+  accessModes:
+  - ReadWriteMany      
+  resources:
+     requests:
+       storage: 2Gi    
+ubuntu@test-master-000:~$ cat gluster.yaml 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: glusterfs-cluster 
+spec:
+  ports:
+  - port: 1
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: glusterfs-cluster 
+subsets:
+  - addresses:
+      - ip: 10.164.0.4 
+    ports:
+      - port: 1 
