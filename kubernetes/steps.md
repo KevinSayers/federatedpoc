@@ -16,13 +16,17 @@ kubectl apply -f pv.yml
 kubectl apply -f test.yml
 
 # mkdirs on the PV
-kubectl exec -it nfs-busybox-b5c8b95fb-299n7 -- /bin/bash
+
 kubectl exec -it nfs-busybox-b5c8b95fb-299n7 -- mkdir /data/kevin
 
 
 nextflow kuberun KevinSayers/rnaseq-nf -v nfs:/newtest
 
+# nodepools
 
+gcloud container node-pools create highmem --machine-type=n1-standard-1 --cluster=newtest --zone us-central1-a
+
+`kubectl get pods -o wide`
 
 
 Other ideass:
