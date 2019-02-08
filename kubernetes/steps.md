@@ -1,6 +1,8 @@
-gcloud container clusters create newtest --zone us-central1-a --enable-legacy-authorization
+gcloud container clusters create newtest --zone us-central1-a --enable-legacy-authorization --num-nodes 5
 
 gcloud compute disks create --size=10GB --zone us-central1-a gce-nfs-disk
+
+kubectl create clusterrolebinding nextflow --clusterrole=edit --serviceaccount=default:default -n default
 
 kubectl apply -f nfs.yml 
 
@@ -17,16 +19,16 @@ kubectl apply -f test.yml
 
 # mkdirs on the PV
 
-kubectl exec -it nfs-busybox-b5c8b95fb-299n7 -- mkdir /data/kevin
+kubectl exec -it nfs-busybox-6485bb97bd-7t9dn -- mkdir /data/kevin
 
 
 nextflow kuberun KevinSayers/rnaseq-nf -v nfs:/newtest
 
 # nodepools
 
-gcloud container node-pools create highmem --machine-type=n1-standard-1 --cluster=newtest --zone us-central1-a
+gcloud container node-pools create highmem --machine-type=n1-standard-1 --cluster=newtest --zone us-central1-a --num-nodes 1
 
-`kubectl get pods -o wide`
+kubectl get pods -o wide
 
 
 Other ideass:
