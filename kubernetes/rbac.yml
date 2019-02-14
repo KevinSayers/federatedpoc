@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"creationTimestamp":"2019-02-13T16:49:16Z","name":"nextflow"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"edit"},"subjects":[{"kind":"ServiceAccount","name":"default","namespace":"default"}]}
+  creationTimestamp: "2019-02-13T16:49:16Z"
+  name: nextflow
+  resourceVersion: "6222"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterrolebindings/nextflow
+  uid: 4cb1423f-2faf-11e9-a3ba-fa163e4267f0
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
