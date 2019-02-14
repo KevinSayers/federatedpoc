@@ -9,8 +9,8 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 10.3.253.170 
-    path: "/"
+    server: 10.1.0.136
+    path: "/export/bc2_fs07/projects/scicore_kube"
 
 ---
 kind: PersistentVolumeClaim

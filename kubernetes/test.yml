@@ -12,10 +12,21 @@ spec:
       labels:
         name: nfs-busybox
     spec:
-      containers:
-      - image: nginx
+      initContainers:
+      - name: create-dir
+        image: busybox
         imagePullPolicy: IfNotPresent
-        name: busybox
+        command:
+        - mkdir
+        - /data/kevin
+        volumeMounts:
+          # name must match the volume name below
+          - name: my-pvc-nfs
+            mountPath: "/data"
+      containers:
+      - name: nginx
+        image: nginx
+        imagePullPolicy: IfNotPresent
         volumeMounts:
           # name must match the volume name below
           - name: my-pvc-nfs
